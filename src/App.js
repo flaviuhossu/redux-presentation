@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Component1 from './components/Component1';
+import { useDispatch } from 'react-redux';
+import { increment } from './redux/numberSlice';
 
-function App() {
+export default function App() {
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <button onClick={() => dispatch(increment())}>INCREASE NUMBER</button>
+      <Component1 />
     </div>
   );
 }
-
-export default App;
